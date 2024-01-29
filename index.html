@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="moment">---</h1><br>
+        <div class="span">---</div>
+    </div>
+
+    <script>
+       var display = document.querySelector('.span');
+       var moment = document.querySelector(".moment");
+       var user = "obinna";
+
+       var timer = setInterval(()=> {
+
+        var date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+
+        display.textContent= `${hours}:${minutes}:${seconds}`;
+
+        if ( hours >= 12){
+            moment.textContent = `Good afternoon,  ${user}`;
+        }
+         if ( hours >= 17){
+            moment.textContent = `Good evening,  ${user}`;
+        }
+         else if (hours >= 0){
+            moment.textContent = `Good morning,  ${user}`;
+        }
+
+       },1000);
+
+    </script>
+</body>
+</html> 
